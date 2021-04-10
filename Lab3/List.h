@@ -24,12 +24,12 @@ public:
 	void ShowByIndex(int);
 	void ShowPageNumberByWord(std::string);
 	void FindWordWithMaxPageNumber();
-	void PushSortedWord(std::string);
+	void PushSortedWord(std::string, List&);
 	void PushWordBefore(std::string, std::string, int);
 	void PushWordAfter(std::string, std::string, int);
 	void DeleteWord(std::string);
-
-
+	
+	
 	std::string& operator[](const int index);
 
 private:

@@ -3,7 +3,7 @@
 
 void OperationList();
 void ChooseOperation(List&);
-
+void ToCapitalLetter(std::string&);
 void Delay();
 void ShowList(List&);
 void CreateList(List&);

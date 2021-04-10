@@ -85,20 +85,29 @@ void List::FindWordWithMaxPageNumber()
 //Вставка перед словом
 void List::PushWordBefore(std::string checkWord, std::string word, int pageNumber)
 {
-	if (this->head->word == checkWord)
+	if (head == nullptr)
 	{
-		PushFront(word, pageNumber);
+		std::cout << "Такого слова нет" << std::endl;
+
 		return;
 	}
 
-	Node* previous = this->head;
-	Node* current = this->head->pNext;;
+	if (head->word == checkWord)
+	{
+		PushFront(word, pageNumber);
+
+		return;
+	}
+
+	
+	Node* current = this->head;
+	Node* previous = current;
 
 	while (current != nullptr)
 	{
 		if (checkWord == current->word)
 		{
-			Node* newNode = new Node(word, pageNumber, current);
+			Node* newNode = new Node(word, pageNumber, previous->pNext);
 
 			previous->pNext = newNode;
 
@@ -107,15 +116,16 @@ void List::PushWordBefore(std::string checkWord, std::string word, int pageNumbe
 			return;
 		}
 
-		previous = previous->pNext;
+		previous = current;
 		current = current->pNext;
 	}
 
 	std::cout << "Такого слова нет" << std::endl;
 }
 
-void List::PushSortedWord(std::string)
+void List::PushSortedWord(std::string inputWord, List& list)
 {
+	//В процессе
 
 }
 
@@ -139,7 +149,7 @@ void List::PushWordAfter(std::string checkWord, std::string word, int pageNumber
 			{
 				Node* newNode = new Node(word, pageNumber, current->pNext);
 
-				current = newNode;
+				current->pNext = newNode;
 
 				size++;
 			}

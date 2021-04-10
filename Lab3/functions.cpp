@@ -1,5 +1,25 @@
 #pragma once
 #include "functions.h"
+#include <string>
+#include <cstring>
+
+void ToCapitalLetter(std::string& str)
+{
+	if (str.empty())
+		return;
+
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (i > 0)
+		{
+			str[i] = std::tolower(str[i]);
+		}
+		if (i == 0)
+		{
+			str[i] = std::toupper(str[i]);
+		}
+	}
+}
 
 void Delay()
 {
@@ -98,6 +118,8 @@ void CreateList(List& list)
 		std::cout << "¬ведите слово: ";
 		std::cin >> word;
 
+		ToCapitalLetter(word);
+
 		std::cout << "¬ведите номер страницы: ";
 		std::cin >> pageNumber;
 
@@ -145,6 +167,8 @@ void ShowNumberByWord(List& list)
 	std::cout << "¬ведите слово дл€ поиска: ";
 	std::cin >> word;
 
+	ToCapitalLetter(word);
+
 	list.ShowPageNumberByWord(word);
 
 	std::cout << std::endl;
@@ -185,6 +209,8 @@ void PushFront(List& list)
 	std::cout << "¬ведите слово: ";
 	std::cin >> word;
 
+	ToCapitalLetter(word);
+
 	int pageNumber;
 	std::cout << "¬ведите номер страницы: ";
 	std::cin >> pageNumber;
@@ -212,6 +238,8 @@ void PushBack(List& list)
 	std::string word;
 	std::cout << "¬ведите слово: ";
 	std::cin >> word;
+
+	ToCapitalLetter(word);
 
 	int pageNumber;
 	std::cout << "¬ведите номер страницы: ";
@@ -254,9 +282,13 @@ void PushBefore(List& list)
 	std::cout << "¬ведите слово, перед которым надо вставить: ";
 	std::cin >> word;
 
+	ToCapitalLetter(word);
+
 	std::string inputWord;
 	std::cout << "¬ведите слово дл€ вставки: ";
 	std::cin >> inputWord;
+
+	ToCapitalLetter(inputWord);
 
 	int pageNumber;
 	std::cout << "¬ведите номер страницы: ";
@@ -286,9 +318,13 @@ void PushAfter(List& list)
 	std::cout << "¬ведите слово, после которого надо вставить: ";
 	std::cin >> word;
 
+	ToCapitalLetter(word);
+
 	std::string inputWord;
 	std::cout << "¬ведите слово дл€ вставки: ";
 	std::cin >> inputWord;
+
+	ToCapitalLetter(inputWord);
 
 	int pageNumber;
 	std::cout << "¬ведите номер страницы: ";
@@ -317,6 +353,8 @@ void DeleteWord(List& list)
 	std::string word;
 	std::cout << "¬ведите слово дл€ удалени€: ";
 	std::cin >> word;
+
+	ToCapitalLetter(word);
 
 	list.DeleteWord(word);
 
